@@ -47,7 +47,6 @@
       document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
     const eventsData = JSON.parse(document.getElementById('events-data').textContent);
-    console.log(eventsData);
     var calendar = new FullCalendar.Calendar(calendarEl, {
       plugins: [ 'interaction', 'dayGrid' ],
       defaultDate: new Date(),
