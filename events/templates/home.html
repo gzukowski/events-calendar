@@ -2,31 +2,34 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
 
-    
     <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
   
     <link href="{% static 'fullcalendar/packages/core/main.css' %}" rel='stylesheet' />
     <link href="{% static 'fullcalendar/packages/daygrid/main.css' %}" rel='stylesheet' />
     
-    
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
     
-    <!-- Style -->
     <link rel="stylesheet" href="{% static 'css/style.css'%}">
 
-    <title>Calendar #9</title>
+    <title>Events calendar</title>
   </head>
   <body>
   
-
+    <div class="filter-container">
+      <label for="tagFilter">Filter by Tag:</label>
+      <select id="tagFilter">
+          <option value="">All</option>
+          <option value="Tag1">Tag1</option>
+          <option value="Tag2">Tag2</option>
+          <option value="Tag3">Tag3</option>
+      </select>
+  </div>
   <div class="content">
     <div id='calendar'></div>
   </div>
@@ -44,7 +47,7 @@
       document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
     const eventsData = JSON.parse(document.getElementById('events-data').textContent);
-        
+    console.log(eventsData);
     var calendar = new FullCalendar.Calendar(calendarEl, {
       plugins: [ 'interaction', 'dayGrid' ],
       defaultDate: new Date(),
@@ -55,7 +58,7 @@
         info.jsEvent.preventDefault(); 
 
         if (info.event.id) {
-          const eventDetailUrl = `/event/${info.event.id}/`;
+          const eventDetailUrl = `/events/${info.event.id}/`;
 
           window.location.href = eventDetailUrl;
         }
