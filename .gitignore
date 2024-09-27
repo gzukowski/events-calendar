@@ -1,0 +1,54 @@
+# Byte-compiled files
+__pycache__/
+*.py[cod]
+
+# Distribution / packaging
+.env
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+*.egg-info/
+.dist-info/
+
+# Django specific files
+*.log
+*.pot
+*.pyc
+*.sqlite3
+
+# Django migrations
+*/migrations/*.py
+*/migrations/*.pyc
+!*/migrations/__init__.py
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Static files
+staticfiles/
+media/
+
+# VS Code settings
+.vscode/
+
+# Pytest
+.cache
+
+# Test results
+*.log
+
+# Coverage reports
+.coverage
+htmlcov/
+
+# MyPy
+.mypy_cache/
+
+# IDEs
+.idea/
+*.swp
+*.swo
+*.DS_Store
