@@ -60,5 +60,5 @@ Once the application is running, visit the homepage where you can inspect the pl
 Run unit tests for views and utils.
 
 ```bash
-    python manage.py tests events.tests
+    python manage.py test events.tests
 ```
