@@ -10,6 +10,8 @@ The **Event Calendar** application is a full-stack web application built with Dj
 - [Installation](#installation)
 - [Running the Application](#running-the-application)
 - [Usage](#usage)
+- [Tests](#tests)
+
 
 ## Features
 
@@ -53,3 +55,10 @@ The application will be available at [http://localhost:8000](http://localhost:80
 ## Usage
 
 Once the application is running, visit the homepage where you can inspect the planned events.
+
+## Tests
+Run unit tests for views and utils.
+
+```bash
+    python manage.py tests events.tests
+```
