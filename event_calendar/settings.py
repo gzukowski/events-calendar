@@ -70,9 +70,13 @@ WSGI_APPLICATION = 'event_calendar.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+     'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.environ.get("DATABASE_NAME"),
+        'USER': os.environ.get("DATABASE_USER"),
+        'PASSWORD': os.environ.get("DATABASE_PASSWORD"),
+        'HOST': os.environ.get("DATABASE_HOST"),
+        'PORT': os.environ.get("DATABASE_PORT"),
     }
 }
 

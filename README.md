@@ -2,6 +2,8 @@
 
 The **Event Calendar** application is a full-stack web application built with Django that allows users to check the planned events. The application is containerized with Docker, making it easy to deploy and run in various environments.
 
+This branch also contains the celery worker for storing hsitorical data for the future uses like inspecting trends etc.
+
 ## Table of Contents
 
 - [Features](#features)

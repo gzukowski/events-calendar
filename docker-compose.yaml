@@ -1,5 +1,20 @@
 version: "3"
 services:
+  db:
+    image: postgres:latest
+    env_file:
+      - .env
+    networks:
+      - events_network
+    environment:
+      POSTGRES_DB: ${DATABASE_NAME}
+      POSTGRES_USER: ${DATABASE_USER}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DATABASE_USER} -d ${DATABASE_NAME}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
   web:
     build:
       context: .
@@ -13,6 +28,8 @@ services:
       - .env
     networks:
       - events_network
+    depends_on:
+      - db
 
   celery:
     build:
@@ -24,6 +41,7 @@ services:
     env_file:
       - .env
     depends_on:
+      - db
       - redis
     networks:
       - events_network
@@ -38,6 +56,7 @@ services:
     env_file:
       - .env
     depends_on:
+      - db
       - redis
     networks:
       - events_network
