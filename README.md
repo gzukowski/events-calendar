@@ -75,3 +75,15 @@ for linux
 ```bash
     python3 manage.py test events.tests
 ```
+
+## Deployment
+To check the steps before the deployment:
+
+```bash
+    python manage.py check --deploy
+```
+for linux:
+
+```bash
+    python3 manage.py check --deploy
+```
