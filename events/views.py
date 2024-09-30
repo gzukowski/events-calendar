@@ -1,6 +1,8 @@
 from django.http import JsonResponse
 from django.shortcuts import redirect, render
 from .utils import fetch_events, fetch_event_details, filter_events
+from .tasks import celery_fetch_events
+from django_celery_beat.models import PeriodicTask, IntervalSchedule
 
 def home(request):
     events, tags = fetch_events()

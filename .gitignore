@@ -52,3 +52,5 @@ htmlcov/
 *.swp
 *.swo
 *.DS_Store
+
+celerybeat-schedule

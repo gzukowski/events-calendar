@@ -11,3 +11,41 @@ services:
       - "8000:8000"
     env_file:
       - .env
+    networks:
+      - events_network
+
+  celery:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: celery --app=event_calendar worker -l info
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    depends_on:
+      - redis
+    networks:
+      - events_network
+
+  celery-beat:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: celery --app=event_calendar beat -l info
+    volumes:
+      - ./:/app/
+    env_file:
+      - .env
+    depends_on:
+      - redis
+    networks:
+      - events_network
+  
+  redis:
+    image: redis:latest
+    networks:
+      - events_network
+
+networks:
+  events_network:
