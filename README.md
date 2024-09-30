@@ -58,8 +58,18 @@ The application will be available at [http://localhost:8000](http://localhost:80
 Once the application is running, visit the homepage where you can inspect the planned events.
 
 ## Tests
-Run unit tests for views and utils.
+Run unit tests for views and utils. Make sure you have all modules installed !
+
+```bash
+    pip install -r requirements.txt
+```
 
 ```bash
     python manage.py test events.tests
+```
+
+for linux
+
+```bash
+    python3 manage.py test events.tests
 ```
