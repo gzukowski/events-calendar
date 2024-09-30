@@ -27,6 +27,7 @@ The **Event Calendar** application is a full-stack web application built with Dj
 ## Requirements
 
 - Docker
+- Docker-compose
 
 ## Installation
 
